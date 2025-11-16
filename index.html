@@ -4,64 +4,112 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BFT Finserv - Apply for Loan</title>
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #eef2ff;
-    padding: 0;
-    margin: 0;
+  *{
+    margin:0; padding:0;
+    font-family: "Inter", Arial, sans-serif;
+    box-sizing: border-box;
   }
-  .header {
-    background: #4f46e5;
-    padding: 18px;
-    color: white;
-    text-align: center;
-    font-size: 24px;
-    letter-spacing: 1px;
+
+  body{
+    background:#f3f4f6;
+    padding:20px;
   }
-  .container {
-    width: 100%;
-    max-width: 470px;
-    margin: 25px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+
+  .card{
+    max-width:430px;
+    background:white;
+    margin:auto;
+    padding:28px;
+    border-radius:22px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
   }
-  input, select, button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 14px;
-    border-radius: 8px;
-    border: 1px solid #bbb;
-    font-size: 16px;
+
+  h2{
+    text-align:center;
+    margin-bottom:18px;
+    font-size:26px;
+    color:#111827;
+    font-weight:700;
   }
-  button {
-    background: #4f46e5;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 18px;
+
+  label{
+    font-size:15px;
+    font-weight:600;
+    color:#374151;
+    margin-top:12px;
+    display:block;
   }
+
+  input, select{
+    width:100%;
+    padding:14px;
+    margin-top:6px;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    font-size:15px;
+    background:#f9fafb;
+    transition:0.2s;
+  }
+
+  input:focus, select:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 3px rgba(99,102,241,0.3);
+    background:white;
+    outline:none;
+  }
+
+  button{
+    width:100%;
+    padding:15px;
+    margin-top:22px;
+    background:#4f46e5;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+  }
+
   button:hover{
-    background: #4338ca;
+    background:#4338ca;
+  }
+
+  /* Mobile responsive tweaks */
+  @media(max-width:500px){
+    .card{
+      padding:20px;
+      border-radius:18px;
+    }
+    h2{
+      font-size:22px;
+    }
+    input, select, button{
+      font-size:15px;
+      padding:13px;
+    }
   }
 </style>
 </head>
 <body>
 
-<div class="header">BFT Finserv - Loan Application</div>
+<div class="card">
+  <h2>BFT Finserv Loan Form</h2>
 
-<div class="container">
   <form id="leadForm">
 
-    <input type="text" id="name" placeholder="Full Name" required />
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name" required />
 
-    <input type="text" id="mobile" placeholder="Mobile Number" required />
+    <label>Mobile Number</label>
+    <input type="text" id="mobile" placeholder="Enter your mobile number" required />
 
+    <label>Select Loan Type</label>
     <select id="loanType" required>
-      <option value="">Select Loan Type</option>
+      <option value="">Choose loan type</option>
       <option>Home Loan</option>
       <option>Personal Loan</option>
       <option>Business Loan</option>
@@ -72,9 +120,11 @@
       <option>Tractor Loan</option>
     </select>
 
-    <input type="text" id="district" placeholder="District" required />
+    <label>District</label>
+    <input type="text" id="district" placeholder="Enter district" required />
 
-    <input type="text" id="pincode" placeholder="Pincode" required />
+    <label>Pincode</label>
+    <input type="text" id="pincode" placeholder="Enter pincode" required />
 
     <button type="submit">Submit</button>
   </form>
@@ -92,7 +142,7 @@ document.getElementById("leadForm").addEventListener("submit", function(e){
 
   let message = `New Lead📩%0A%0AName: ${name}%0AMobile: ${mobile}%0ALoan Type: ${loan}%0ADistrict: ${district}%0APincode: ${pincode}`;
 
-  let whatsappNumber = "916353511804";  // आपका नंबर सेट कर दिया है
+  let whatsappNumber = "916353511804";
 
   let url = `https://wa.me/${whatsappNumber}?text=${message}`;
   window.open(url, "_blank");
@@ -100,4 +150,4 @@ document.getElementById("leadForm").addEventListener("submit", function(e){
 </script>
 
 </body>
-</html>
+</html></html>
