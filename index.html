@@ -3,72 +3,79 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BFT Finserv - Apply for Loan</title>
+<title>BFT Finserv Loan Form</title>
 
 <style>
   *{
     margin:0; padding:0;
-    font-family: "Inter", Arial, sans-serif;
     box-sizing: border-box;
+    font-family: "Inter", Arial, sans-serif;
   }
 
   body{
-    background:#f3f4f6;
-    padding:20px;
+    background:#eef2ff;
+    padding:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .wrapper{
+    width:100%;
+    max-width:420px;
   }
 
   .card{
-    max-width:430px;
     background:white;
-    margin:auto;
-    padding:28px;
-    border-radius:22px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+    width:100%;
+    padding:26px;
+    border-radius:18px;
+    box-shadow:0 6px 25px rgba(0,0,0,0.15);
   }
 
   h2{
     text-align:center;
-    margin-bottom:18px;
-    font-size:26px;
-    color:#111827;
+    font-size:24px;
     font-weight:700;
+    margin-bottom:18px;
+    color:#111827;
   }
 
   label{
-    font-size:15px;
-    font-weight:600;
-    color:#374151;
     margin-top:12px;
     display:block;
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
   }
 
   input, select{
     width:100%;
     padding:14px;
-    margin-top:6px;
     border-radius:10px;
     border:1px solid #d1d5db;
-    font-size:15px;
+    margin-top:6px;
     background:#f9fafb;
+    font-size:15px;
     transition:0.2s;
   }
 
   input:focus, select:focus{
     border-color:#6366f1;
     box-shadow:0 0 0 3px rgba(99,102,241,0.3);
-    background:white;
     outline:none;
+    background:white;
   }
 
   button{
     width:100%;
     padding:15px;
-    margin-top:22px;
     background:#4f46e5;
     color:white;
     border:none;
-    border-radius:12px;
-    font-size:18px;
+    border-radius:10px;
+    font-size:17px;
+    margin-top:20px;
     font-weight:600;
     cursor:pointer;
     transition:0.2s;
@@ -78,56 +85,65 @@
     background:#4338ca;
   }
 
-  /* Mobile responsive tweaks */
-  @media(max-width:500px){
+  /* Full Mobile Responsive */
+  @media(max-width:480px){
+    body{
+      padding:12px;
+    }
     .card{
       padding:20px;
-      border-radius:18px;
+      border-radius:16px;
     }
     h2{
-      font-size:22px;
+      font-size:20px;
     }
-    input, select, button{
-      font-size:15px;
-      padding:13px;
+    input, select{
+      padding:12px;
+      font-size:14px;
+    }
+    button{
+      padding:14px;
+      font-size:16px;
     }
   }
 </style>
 </head>
 <body>
 
-<div class="card">
-  <h2>BFT Finserv Loan Form</h2>
+<div class="wrapper">
+  <div class="card">
+    <h2>Apply for Loan</h2>
 
-  <form id="leadForm">
+    <form id="leadForm">
 
-    <label>Full Name</label>
-    <input type="text" id="name" placeholder="Enter your full name" required />
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
 
-    <label>Mobile Number</label>
-    <input type="text" id="mobile" placeholder="Enter your mobile number" required />
+      <label>Mobile Number</label>
+      <input type="text" id="mobile" placeholder="Enter mobile number" required />
 
-    <label>Select Loan Type</label>
-    <select id="loanType" required>
-      <option value="">Choose loan type</option>
-      <option>Home Loan</option>
-      <option>Personal Loan</option>
-      <option>Business Loan</option>
-      <option>Loan Against Property</option>
-      <option>Instant Loan</option>
-      <option>Car Loan</option>
-      <option>Used Car Loan</option>
-      <option>Tractor Loan</option>
-    </select>
+      <label>Loan Type</label>
+      <select id="loanType" required>
+        <option value="">Select loan type</option>
+        <option>Home Loan</option>
+        <option>Personal Loan</option>
+        <option>Business Loan</option>
+        <option>Loan Against Property</option>
+        <option>Instant Loan</option>
+        <option>Car Loan</option>
+        <option>Used Car Loan</option>
+        <option>Tractor Loan</option>
+      </select>
 
-    <label>District</label>
-    <input type="text" id="district" placeholder="Enter district" required />
+      <label>District</label>
+      <input type="text" id="district" placeholder="Enter your district" required />
 
-    <label>Pincode</label>
-    <input type="text" id="pincode" placeholder="Enter pincode" required />
+      <label>Pincode</label>
+      <input type="text" id="pincode" placeholder="Enter pincode" required />
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </div>
 
 <script>
@@ -150,4 +166,4 @@ document.getElementById("leadForm").addEventListener("submit", function(e){
 </script>
 
 </body>
-</html></html>
+</html>
