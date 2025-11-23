@@ -1,40 +1,160 @@
-<!doctype html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GitHub → WhatsApp Lead Form</title>
-  <style>
-    :root{--bg:#f7fafc;--card:#ffffff;--accent:#0f172a;--muted:#6b7280}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--accent); margin:0; padding:24px; display:flex; align-items:center; justify-content:center; min-height:100vh;}
-    .card{background:var(--card); padding:24px; border-radius:12px; box-shadow:0 6px 18px rgba(15,23,42,0.06); width:100%; max-width:520px;}
-    h1{margin:0 0 10px; font-size:20px;}
-    p.sub{margin-top:0; margin-bottom:18px; color:var(--muted); font-size:13px;}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
-    label{display:block; font-size:13px; margin-bottom:6px;}
-    input, select{width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e9ef; font-size:14px; box-sizing:border-box;}
-    input[type="date"]{padding:8px 12px;}
-    .full{grid-column:1 / -1;}
-    .btn{display:inline-block; margin-top:12px; padding:11px 16px; border-radius:10px; background:#16a34a; color:white; border:0; cursor:pointer; font-weight:600;}
-    .note{font-size:12px; color:var(--muted); margin-top:10px;}
-    .small{font-size:12px; color:#ef4444;}
-    footer{margin-top:14px; font-size:12px; color:var(--muted);}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BFT Finserv Lead Form</title>
+
+<style>
+  *{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    font-family: "Inter", Arial, sans-serif;
+  }
+
+  body{
+    background:#eef2ff;
+    padding:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .wrapper{
+    width:100%;
+    max-width:420px;
+  }
+
+  .card{
+    background:white;
+    width:100%;
+    padding:26px;
+    border-radius:18px;
+    box-shadow:0 6px 25px rgba(0,0,0,0.15);
+  }
+
+  h2{
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:18px;
+    color:#111827;
+  }
+
+  label{
+    margin-top:12px;
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
+  }
+
+  input, select{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    margin-top:6px;
+    background:#f9fafb;
+    font-size:15px;
+    transition:0.2s;
+  }
+
+  input:focus, select:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 3px rgba(99,102,241,0.3);
+    outline:none;
+    background:white;
+  }
+
+  button{
+    width:100%;
+    padding:15px;
+    background:#4f46e5;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    margin-top:20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+  }
+
+  button:hover{
+    background:#4338ca;
+  }
+
+  @media(max-width:480px){
+    body{ padding:12px; }
+    .card{ padding:20px; border-radius:16px; }
+    h2{ font-size:20px; }
+    input, select{ padding:12px; font-size:14px; }
+    button{ padding:14px; font-size:16px; }
+  }
+</style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>Lead Form — GitHub → WhatsApp</h1>
-    <p class="sub">Name, Surname, Mobile, Birth date, Gender भरे — submit करने पर WhatsApp message खुलेगा.</p>
 
-    <form id="leadForm" autocomplete="off">
-      <div class="grid">
-        <div>
-          <label for="fname">Name</label>
-          <input id="fname" name="fname" type="text" placeholder="पहला नाम" required maxlength="50" />
-        </div>
+<div class="wrapper">
+  <div class="card">
+    <h2>Lead Form</h2>
 
-        <div>
-          <label for="lname">Surname</label>
+    <form id="leadForm">
+
+      <label>Name</label>
+      <input type="text" id="name" placeholder="Enter name" required />
+
+      <label>Surname</label>
+      <input type="text" id="surname" placeholder="Enter surname" required />
+
+      <label>Mobile Number</label>
+      <input type="text" id="mobile" placeholder="Enter mobile number" required />
+
+      <label>Birth Date</label>
+      <input type="date" id="birth" required />
+
+      <label>Gender</label>
+      <select id="gender" required>
+        <option value="">Select gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let surname = document.getElementById("surname").value;
+  let mobile = document.getElementById("mobile").value;
+  let birth = document.getElementById("birth").value;
+  let gender = document.getElementById("gender").value;
+
+  // WhatsApp Bold Format
+  let message =
+    `*New Lead*📩%0A%0A` +
+    `*Name:* ${name}%0A` +
+    `*Surname:* ${surname}%0A` +
+    `*Mobile:* ${mobile}%0A` +
+    `*Birth Date:* ${birth}%0A` +
+    `*Gender:* ${gender}`;
+
+  let whatsappNumber = "916353511804";
+
+  let url = `https://wa.me/${whatsappNumber}?text=${message}`;
+  window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>          <label for="lname">Surname</label>
           <input id="lname" name="lname" type="text" placeholder="आख़िरी नाम" required maxlength="50" />
         </div>
 
@@ -154,3 +274,4 @@
   </script>
 </body>
 </html>
+
