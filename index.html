@@ -1,169 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BFT Finserv Loan Form</title>
-
-<style>
-  *{
-    margin:0; padding:0;
-    box-sizing: border-box;
-    font-family: "Inter", Arial, sans-serif;
-  }
-
-  body{
-    background:#eef2ff;
-    padding:18px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-
-  .wrapper{
-    width:100%;
-    max-width:420px;
-  }
-
-  .card{
-    background:white;
-    width:100%;
-    padding:26px;
-    border-radius:18px;
-    box-shadow:0 6px 25px rgba(0,0,0,0.15);
-  }
-
-  h2{
-    text-align:center;
-    font-size:24px;
-    font-weight:700;
-    margin-bottom:18px;
-    color:#111827;
-  }
-
-  label{
-    margin-top:12px;
-    display:block;
-    font-size:14px;
-    font-weight:600;
-    color:#374151;
-  }
-
-  input, select{
-    width:100%;
-    padding:14px;
-    border-radius:10px;
-    border:1px solid #d1d5db;
-    margin-top:6px;
-    background:#f9fafb;
-    font-size:15px;
-    transition:0.2s;
-  }
-
-  input:focus, select:focus{
-    border-color:#6366f1;
-    box-shadow:0 0 0 3px rgba(99,102,241,0.3);
-    outline:none;
-    background:white;
-  }
-
-  button{
-    width:100%;
-    padding:15px;
-    background:#4f46e5;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-size:17px;
-    margin-top:20px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.2s;
-  }
-
-  button:hover{
-    background:#4338ca;
-  }
-
-  /* Full Mobile Responsive */
-  @media(max-width:480px){
-    body{
-      padding:12px;
-    }
-    .card{
-      padding:20px;
-      border-radius:16px;
-    }
-    h2{
-      font-size:20px;
-    }
-    input, select{
-      padding:12px;
-      font-size:14px;
-    }
-    button{
-      padding:14px;
-      font-size:16px;
-    }
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GitHub → WhatsApp Lead Form</title>
+  <style>
+    :root{--bg:#f7fafc;--card:#ffffff;--accent:#0f172a;--muted:#6b7280}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--accent); margin:0; padding:24px; display:flex; align-items:center; justify-content:center; min-height:100vh;}
+    .card{background:var(--card); padding:24px; border-radius:12px; box-shadow:0 6px 18px rgba(15,23,42,0.06); width:100%; max-width:520px;}
+    h1{margin:0 0 10px; font-size:20px;}
+    p.sub{margin-top:0; margin-bottom:18px; color:var(--muted); font-size:13px;}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+    label{display:block; font-size:13px; margin-bottom:6px;}
+    input, select{width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e9ef; font-size:14px; box-sizing:border-box;}
+    input[type="date"]{padding:8px 12px;}
+    .full{grid-column:1 / -1;}
+    .btn{display:inline-block; margin-top:12px; padding:11px 16px; border-radius:10px; background:#16a34a; color:white; border:0; cursor:pointer; font-weight:600;}
+    .note{font-size:12px; color:var(--muted); margin-top:10px;}
+    .small{font-size:12px; color:#ef4444;}
+    footer{margin-top:14px; font-size:12px; color:var(--muted);}
+  </style>
 </head>
 <body>
+  <main class="card" role="main">
+    <h1>Lead Form — GitHub → WhatsApp</h1>
+    <p class="sub">Name, Surname, Mobile, Birth date, Gender भरे — submit करने पर WhatsApp message खुलेगा.</p>
 
-<div class="wrapper">
-  <div class="card">
-    <h2>Apply for Loan</h2>
+    <form id="leadForm" autocomplete="off">
+      <div class="grid">
+        <div>
+          <label for="fname">Name</label>
+          <input id="fname" name="fname" type="text" placeholder="पहला नाम" required maxlength="50" />
+        </div>
 
-    <form id="leadForm">
+        <div>
+          <label for="lname">Surname</label>
+          <input id="lname" name="lname" type="text" placeholder="आख़िरी नाम" required maxlength="50" />
+        </div>
 
-      <label>Full Name</label>
-      <input type="text" id="name" placeholder="Enter your name" required />
+        <div class="full">
+          <label for="leadMobile">Mobile number (lead)</label>
+          <input id="leadMobile" name="leadMobile" type="tel" placeholder="e.g. 9876543210 या +919876543210" required maxlength="20" />
+          <div class="note">अगर सिर्फ 10 अंक डालोगे तो प्रणाली भारत के +91 जोड़ देगी।</div>
+        </div>
 
-      <label>Mobile Number</label>
-      <input type="text" id="mobile" placeholder="Enter mobile number" required />
+        <div>
+          <label for="birth">Birth date</label>
+          <input id="birth" name="birth" type="date" />
+        </div>
 
-      <label>Loan Type</label>
-      <select id="loanType" required>
-        <option value="">Select loan type</option>
-        <option>Home Loan</option>
-        <option>Personal Loan</option>
-        <option>Business Loan</option>
-        <option>Loan Against Property</option>
-        <option>Instant Loan</option>
-        <option>Car Loan</option>
-        <option>Used Car Loan</option>
-        <option>Tractor Loan</option>
-      </select>
+        <div>
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="">-- चुनें --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
 
-      <label>District</label>
-      <input type="text" id="district" placeholder="Enter your district" required />
+        <div class="full">
+          <button type="submit" class="btn">Send to WhatsApp</button>
+        </div>
+      </div>
 
-      <label>Pincode</label>
-      <input type="text" id="pincode" placeholder="Enter pincode" required />
-
-      <button type="submit">Submit</button>
+      <div id="error" class="small" style="display:none;"></div>
     </form>
-  </div>
-</div>
 
-<script>
-document.getElementById("leadForm").addEventListener("submit", function(e){
-  e.preventDefault();
+    <footer>
+      Target WhatsApp number: <strong>+91 63535 11804</strong><br />
+      (इसे बदलने के लिए नीचे JS में targetNumber बदलिए)
+    </footer>
+  </main>
 
-  let name = document.getElementById("name").value;
-  let mobile = document.getElementById("mobile").value;
-  let loan = document.getElementById("loanType").value;
-  let district = document.getElementById("district").value;
-  let pincode = document.getElementById("pincode").value;
+  <script>
+    (function(){
+      const form = document.getElementById('leadForm');
+      const errEl = document.getElementById('error');
 
-  let message = `New Lead📩%0A%0AName: ${name}%0AMobile: ${mobile}%0ALoan Type: ${loan}%0ADistrict: ${district}%0APincode: ${pincode}`;
+      // TARGET WHATSAPP NUMBER (no + or spaces) — change here if चाहिए
+      const targetNumber = '916353511804';
 
-  let whatsappNumber = "916353511804";
+      function cleanDigits(s){
+        if(!s) return '';
+        const d = s.replace(/\\D/g,''); // remove non-digits
+        // heuristic: if user entered 10 digits -> assume Indian local -> add 91
+        if(d.length === 10) return '91' + d;
+        // if user entered 11 and starts with 0 -> strip leading 0 and add 91
+        if(d.length === 11 && d.startsWith('0')) return '91' + d.slice(1);
+        // if starts with 91 already, keep
+        if(d.startsWith('91')) return d;
+        // otherwise return as-is (could be international with country code)
+        return d;
+      }
 
-  let url = `https://wa.me/${whatsappNumber}?text=${message}`;
-  window.open(url, "_blank");
-});
-</script>
+      function encodeMessage(obj){
+        // create a neat multi-line message
+        let lines = [];
+        lines.push('📌 *New Lead*');
+        lines.push('');
+        lines.push('*Name:* ' + (obj.fname || '-'));
+        lines.push('*Surname:* ' + (obj.lname || '-'));
+        lines.push('*Mobile:* ' + (obj.leadMobileDisplay || '-'));
+        if(obj.leadMobileNorm) lines.push('*Mobile (normalized):* ' + obj.leadMobileNorm);
+        if(obj.birth) lines.push('*Birth date:* ' + obj.birth);
+        if(obj.gender) lines.push('*Gender:* ' + obj.gender);
+        lines.push('');
+        lines.push('_Source: GitHub hosted form_');
+        return lines.join('\\n');
+      }
 
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        errEl.style.display = 'none';
+        const f = document.getElementById('fname').value.trim();
+        const l = document.getElementById('lname').value.trim();
+        const mRaw = document.getElementById('leadMobile').value.trim();
+        const birth = document.getElementById('birth').value;
+        const gender = document.getElementById('gender').value;
+
+        if(!f || !l || !mRaw || !gender){
+          errEl.textContent = 'कृपया Name, Surname, Mobile और Gender ज़रूर भरें।';
+          errEl.style.display = 'block';
+          return;
+        }
+
+        const mNorm = cleanDigits(mRaw);
+        // Optional basic validation: must have at least 6 digits after cleaning
+        if(mNorm.length < 6){
+          errEl.textContent = 'Mobile number सही नहीं है — कृपया मान्य नंबर डालें।';
+          errEl.style.display = 'block';
+          return;
+        }
+
+        const message = encodeMessage({
+          fname: f,
+          lname: l,
+          leadMobileDisplay: mRaw,
+          leadMobileNorm: mNorm,
+          birth: birth,
+          gender: gender
+        });
+
+        // build wa.me URL
+        const base = 'https://wa.me/' + encodeURIComponent(targetNumber);
+        const url = base + '?text=' + encodeURIComponent(message);
+
+        // Open WhatsApp in new tab/window
+        window.open(url, '_blank');
+      });
+    })();
+  </script>
 </body>
 </html>
